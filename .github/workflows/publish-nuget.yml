@@ -1,0 +1,38 @@
+﻿name: Publish Contracts to Org NuGet
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read      
+      packages: write 
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build project
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Pack NuGet package
+        run: dotnet pack --configuration Release --no-build -p:PackageVersion=${GITHUB_REF_NAME#v}
+
+      - name: Publish to GitHub Org Packages
+        run: dotnet nuget push "src/bin/Pharos.FGA.AspNetCore/Release/*.nupkg" --api-key ${{ secrets.NUGET_TOKEN }} --source "https://nuget.pkg.github.com/Talapkerbek/index.json" --skip-duplicate
+        
+      - name: Publish to GitHub Org Packages
+        run: dotnet nuget push "src/bin/Pharos.FGA.DependencyInjection/Release/*.nupkg" --api-key ${{ secrets.NUGET_TOKEN }} --source "https://nuget.pkg.github.com/Talapkerbek/index.json" --skip-duplicate

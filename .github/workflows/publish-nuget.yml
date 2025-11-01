@@ -32,7 +32,7 @@ jobs:
         run: dotnet pack --configuration Release --no-build -p:PackageVersion=${GITHUB_REF_NAME#v}
 
       - name: Publish to GitHub Org Packages
-        run: dotnet nuget push "src/bin/Pharos.FGA.AspNetCore/Release/*.nupkg" --api-key ${{ secrets.NUGET_TOKEN }} --source "https://nuget.pkg.github.com/Talapkerbek/index.json" --skip-duplicate
+        run: dotnet nuget push "src/Pharos.FGA.AspNetCore/bin/Release/*.nupkg" --api-key ${{ secrets.NUGET_TOKEN }} --source "https://nuget.pkg.github.com/Talapkerbek/index.json" --skip-duplicate
         
       - name: Publish to GitHub Org Packages
-        run: dotnet nuget push "src/bin/Pharos.FGA.DependencyInjection/Release/*.nupkg" --api-key ${{ secrets.NUGET_TOKEN }} --source "https://nuget.pkg.github.com/Talapkerbek/index.json" --skip-duplicate
+        run: dotnet nuget push "src/Pharos.FGA.DependencyInjection/bin/Release/*.nupkg" --api-key ${{ secrets.NUGET_TOKEN }} --source "https://nuget.pkg.github.com/Talapkerbek/index.json" --skip-duplicate

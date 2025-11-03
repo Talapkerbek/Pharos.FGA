@@ -21,6 +21,19 @@ public static class MinimalApiExtensions
     {
         return builder.WithMetadata(new FgaHeaderObjectAttribute(relation, type, headerKey));
     }
+    
+    /// <summary>
+    /// <inheritdoc cref="FgaHeaderObjectAttribute"/>
+    /// </summary>
+    /// <param name="builder">The <see cref="T:Microsoft.AspNetCore.Builder.IEndpointConventionBuilder"/>.</param>
+    /// <param name="relation">The relationship to check, such as writer or viewer</param>
+    /// <param name="type">The relation between the user and object</param>
+    /// <param name="object">The object with type and id in 'objectType:id' format. Will throw an exception if not present.</param>
+    /// <returns>The <see cref="T:Microsoft.AspNetCore.Builder.IEndpointConventionBuilder" />.</returns>
+    public static TBuilder WithFgaStringObject<TBuilder>(this TBuilder builder, string relation, string type, string @object) where TBuilder : IEndpointConventionBuilder
+    {
+        return builder.WithMetadata(new FgaStringObjectAttribute(relation, type, @object));
+    }
 
     /// <summary>
     /// <inheritdoc cref="FgaPropertyObjectAttribute"/>

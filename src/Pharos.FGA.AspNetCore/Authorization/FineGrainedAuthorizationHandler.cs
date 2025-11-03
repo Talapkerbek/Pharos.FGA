@@ -68,7 +68,7 @@ internal sealed class FineGrainedAuthorizationHandler : AuthorizationHandler<Fin
                 return;
             }
 
-            if (!Validation.IsValidUser(user))
+            if (!Validation.IsValidObjectReference(user))
             {
                 _logger.InvalidUser(user);
                 return;

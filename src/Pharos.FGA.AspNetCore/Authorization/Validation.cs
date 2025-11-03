@@ -3,9 +3,9 @@ namespace Pharos.FGA.AspNetCore.Authorization;
 internal static class Validation
 {
     // Validate the user is either in the type:id format or '*'
-    public static bool IsValidUser(string user)
+    public static bool IsValidObjectReference(string reference)
     {
-        var strSpan = user.AsSpan();
+        var strSpan = reference.AsSpan();
 
         var seperatorCount = 0;
 

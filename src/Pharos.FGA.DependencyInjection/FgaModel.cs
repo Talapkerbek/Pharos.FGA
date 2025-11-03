@@ -14,35 +14,35 @@ public static class FgaModel
 
         public static class Relations
         {
+            public const string Employee = "employee";
             public const string God = "god";
             public const string Admin = "admin";
+            public const string Support = "support";
+
+            public const string CanManageInstitutions = "can_manage_institutions";
+            public const string CanManageBilling = "can_manage_billing";
+            public const string CanResetPasswords = "can_reset_passwords";
         }
     }
 
-    public static class Tenant
+    public static class Institution
     {
-        public const string ObjectName = "tenant";
+        public const string ObjectName = "institution";
 
         public static class Relations
         {
+            public const string Platform = "platform";
+            public const string Member = "member";
             public const string Admin = "admin";
-            public const string Viewer = "viewer";
-        }
-    }
-
-    public static class University
-    {
-        public const string ObjectName = "university";
-
-        public static class Relations
-        {
-            public const string Admin = "admin";
-            public const string Tenant = "tenant";
             public const string Rector = "rector";
             public const string Prorector = "prorector";
             public const string Support = "support";
             public const string Security = "security";
             public const string Faculty = "faculty";
+            public const string Viewer = "viewer";
+
+            public const string CanManageFaculty = "can_manage_faculty";
+            public const string CanManageStaff = "can_manage_staff";
         }
     }
 
@@ -53,8 +53,7 @@ public static class FgaModel
         public static class Relations
         {
             public const string Admin = "admin";
-            public const string University = "university";
-            public const string DeputyAdmin = "deputy_admin";
+            public const string Institution = "institution";
             public const string Methodist = "methodist";
         }
     }

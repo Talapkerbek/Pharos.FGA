@@ -22,6 +22,7 @@ public static class FgaModel
             public const string CanManageInstitutions = "can_manage_institutions";
             public const string CanManageBilling = "can_manage_billing";
             public const string CanResetPasswords = "can_reset_passwords";
+            public const string CanManageStaff = "can_manage_staff";
         }
     }
 

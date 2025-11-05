@@ -16,12 +16,10 @@ public class FgaStringObjectAttribute : FgaBaseObjectAttribute
     /// Computes a FGA Authorization check based on the header value of the request
     /// </summary>
     /// <param name="relation">The relationship to check, such as writer or viewer</param>
-    /// <param name="type">The relation between the user and object</param>
     /// <param name="object">The object with type and id in 'objectType:id' format. Will throw an exception if not present.</param>
-    public FgaStringObjectAttribute(string relation, string type, string @object)
+    public FgaStringObjectAttribute(string relation, string @object)
     {
         _relation = relation;
-        _type = type;
         _object = @object;
     }
 

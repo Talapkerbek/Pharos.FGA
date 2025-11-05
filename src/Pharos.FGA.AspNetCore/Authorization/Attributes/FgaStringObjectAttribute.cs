@@ -9,7 +9,6 @@ namespace Pharos.FGA.AspNetCore.Authorization.Attributes;
 public class FgaStringObjectAttribute : FgaBaseObjectAttribute
 {
     private readonly string _relation;
-    private readonly string _type;
     private readonly string _object;
 
     /// <summary>
